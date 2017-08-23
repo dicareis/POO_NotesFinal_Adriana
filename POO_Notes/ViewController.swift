@@ -9,25 +9,25 @@
 import UIKit
 //==================================
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    //---------------------
+    //-----------------------------------------------------------------------------------------------//
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var objAdd = Add()
     let jsonManager = JsonManager(urlToJsonFile: "http://localhost/dashboard/programmationOO2_Adriana/json_php/data.json")
-    //---------------------
+    //----------------------------------------------------------------------------------------------------//
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    //---------------------
+    //----------------------------------------------------------------------------------------------------//
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    //----------Methode pour determiner la quantite de lignes dans la tableView-----------
+    //----------Methode pour determiner la quantite de lignes dans la tableView---------------------------//
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.backgroundColor = UIColor.clear
         return objAdd.dictionnary.count
     }
-    //----------Methode pour ajouter les informations de chaque ligne dans la tableView-----------
+    //----------Methode pour ajouter les informations de chaque ligne dans la tableView-------------------//
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier:"proto")
         cell.textLabel!.text = objAdd.keys[indexPath.row]
@@ -35,13 +35,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.backgroundColor = UIColor.clear
         return cell
     }
-    //-----------Methode que selectionne les lignes----------
+    //-----------Methode que selectionne les lignes-------------------------------------------------------//
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if Array(objAdd.dictionnary.values)[indexPath.row] {
             cell.backgroundColor = UIColor(red: 0.125, green: 0.251, blue: 0.6, alpha: 1.0)
         }
     }
-    //-----------Methode que change les valeurs (true or false) quand on selectionne ou deselectionne les lignes----------
+    //-----------Methode que change les valeurs (true or false) quand on selectionne ou deselectionne les lignes--------------------------------------------------------------------------------------------//
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
         selectedCell.contentView.backgroundColor = UIColor.yellow
@@ -53,7 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         objAdd.saveData()
         tableView.reloadData()
     }
-    //-----------Methode pour effacer une element de la tableView----------
+    //-----------Methode pour effacer une element de la tableView-----------------------------------------//
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCellEditingStyle.delete {
@@ -61,14 +61,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
     }
-    //--------------- Methode pour ajouter une note à la tableView ---------------------//
+    //--------------- Methode pour ajouter une note à la tableView ---------------------------------------//
     @IBAction func ajouterNote(_ sender: UIButton) {
         
-        objAdd.addValue(keyToAdd: textField.text!)
-        tableView.reloadData()
-        textField.text?.removeAll()
+        if !(textField.text?.isEmpty)!{
+            objAdd.addValue(keyToAdd: textField.text!)
+            tableView.reloadData()
+            textField.text?.removeAll()
+            alerte("Note ajoutée !!")
+        }
+        
+        
     }
-    //--------------- Methode pour sauvegarder les notes sur le serveur ---------------------//
+    //--------------- Methode pour sauvegarder les notes sur le serveur ----------------------------------//
     @IBAction func sauvegarderServeur(_ sender: UIButton) {
         var urlToSend = "http://localhost/dashboard/programmationOO2_Adriana/json_php/add.php?json=["
         var counter = 0
@@ -92,6 +97,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             (data:Data?, response:URLResponse?, error:Error?) -> Void in
         }
         dataTask.resume()
+        alerte("Données sauvegardées \n dans le serveur !!")
     }
     //--------------- Methode pour telecharger les notes sauvegardées sur le serveur ---------------------//
     @IBAction func telechargerNotes(_ sender: UIButton) {
@@ -100,12 +106,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         jsonManager.parseJsonDict(objAdd: objAdd)
         objAdd.saveData()
         tableView.reloadData()
+        alerte("Les données ont été telechargées !!")
     }
-    //----------------Methode pour changer un caractere pour un autre -----
+    //----------------Methode pour changer un caractere pour un autre ----------------------------------//
     func replaceChars(originalStr: String, what: String, byWhat: String) -> String {
         return originalStr.replacingOccurrences(of: what, with: byWhat)
     }
-    //----------------Methode pour deselectionner les elements dans la liste-----
+    //----------------Methode pour deselectionner les elements dans la liste---------------------------//
     @IBAction func deselectionner(_ sender: UIButton) {
         
         for i in 0 ..< objAdd.dictionnary.count    {
@@ -115,7 +122,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         tableView.reloadData()
     }
-
+    
+    //----------------Methode pour faire des alertes au utilisateur----------------------------------//
+    func alerte(_ theMessage: String)
+    {
+        let alertController = UIAlertController(title: "Notes...", message:
+            theMessage, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }//fin de la class
 //==================================
 

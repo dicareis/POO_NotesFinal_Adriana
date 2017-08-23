@@ -92,15 +92,15 @@
 		9B8AE1F81F4DC4B200D1162D /* POO_Notes */ = {
 			isa = PBXGroup;
 			children = (
-				9B8AE1F91F4DC4B200D1162D /* AppDelegate.swift */,
-				9B8AE1FB1F4DC4B200D1162D /* ViewController.swift */,
 				9B8AE2311F4DCE5600D1162D /* images */,
 				9B8AE2321F4DCE6100D1162D /* icons */,
 				9B8AE20B1F4DCD2600D1162D /* Add.swift */,
-				9B8AE20F1F4DCD5200D1162D /* ViewListeNotes.swift */,
-				9B8AE1FD1F4DC4B200D1162D /* Main.storyboard */,
+				9B8AE1F91F4DC4B200D1162D /* AppDelegate.swift */,
 				9B8AE20D1F4DCD3B00D1162D /* JsonManager.swift */,
+				9B8AE1FB1F4DC4B200D1162D /* ViewController.swift */,
+				9B8AE20F1F4DCD5200D1162D /* ViewListeNotes.swift */,
 				9B8AE2001F4DC4B200D1162D /* Assets.xcassets */,
+				9B8AE1FD1F4DC4B200D1162D /* Main.storyboard */,
 				9B8AE2021F4DC4B200D1162D /* LaunchScreen.storyboard */,
 				9B8AE2051F4DC4B200D1162D /* Info.plist */,
 			);
