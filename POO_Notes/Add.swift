@@ -9,13 +9,13 @@
 import Foundation
 //==================================
 class Add {
-    //---------------------------
+    //------------------------------------------------------------------------------------//
     var dictionnary: [String: Bool]!
     var keys: [String] = []
     var values: [Bool] = []
     var keysTrue: [String] = []
     let userDefault = UserDefaults.standard
-    //---------------------------
+    //-----------------------------------------------------------------------------------//
     init() {
         if userDefault.object(forKey: "data") ==  nil {
             dictionnary = [:]
@@ -25,7 +25,7 @@ class Add {
             parseDict()
         }
     }
-    //----------Methode pour batir les 'keys' et values du dictionnaire-----------------
+    //----------Methode pour batir les 'keys' et values du dictionnaire------------------//
     func parseDict() {
         keys = []
         values = []
@@ -34,27 +34,27 @@ class Add {
             values.append(v)
         }
     }
-    //----------Methode pour ajouter un element dans le dictionnaire-----------------
+    //----------Methode pour ajouter un element dans le dictionnaire---------------------//
     func addValue(keyToAdd: String) {
         dictionnary[keyToAdd] = false
         saveData()
     }
-    //----------Methode pour enlever un element dans le dictionnaire-----------------
+    //----------Methode pour enlever un element dans le dictionnaire---------------------//
     func removeValue(keyToRemove: String) {
         dictionnary[keyToRemove] = nil
         saveData()
     }
-    //-----------Methode pour sauvegarder le dictionnaire dans le 'userDefault'----------------
+    //-----------Methode pour sauvegarder le dictionnaire dans le 'userDefault'----------//
     func saveData() {
         parseDict()
         userDefault.setValue(dictionnary, forKey: "data")
     }
-    //-----------Methode pour vider le dictionnaire----------------
+    //-----------Methode pour vider le dictionnaire--------------------------------------//
     func removeALL () {
         dictionnary = [:]
         self.parseDict()
     }
-    //-----------Methode pour ajouter les elements ('value' = true) dans l'arrayList----------------
+    //-----------Methode pour ajouter les elements ('value' = true) dans l'arrayList-----//
     func arrayTrue () {
       
         for (k, v) in dictionnary {
@@ -65,7 +65,7 @@ class Add {
         }
         saveData()
     }
-    //-----------Methode pour convertir un 'value' a false----------------
+    //-----------Methode pour convertir un 'value' a false------------------------------//
     func removeKeyTrue(_ keyToRemove: String, _ indexToRemove: Int){
         dictionnary[keyToRemove] = false
         keysTrue.remove(at: indexToRemove)
