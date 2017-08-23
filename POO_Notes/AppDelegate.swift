@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  POO_Notes
+//  POO_Notes - Adriana Reis de Sa Oliveira
 //
-//  Created by eleves on 17-08-23.
+//  Created by eleves on 2017-07-20.
 //  Copyright © 2017 GrassetSucre. All rights reserved.
 //
 
