@@ -24,67 +24,87 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrierePlanMedium.png" translatesAutoresizingMaskIntoConstraints="NO" id="TqD-5N-Tel">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qTo-cd-V5H">
-                                <rect key="frame" x="16" y="206" width="339" height="328"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qTo-cd-V5H">
+                                <rect key="frame" x="18" y="208" width="339" height="328"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="328" id="9Cr-y5-CVj"/>
+                                    <constraint firstAttribute="width" constant="339" id="KpH-9J-l2T"/>
+                                </constraints>
                                 <color key="separatorColor" red="0.77037246839999995" green="0.91793505549999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="mKA-aS-Gmi"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="1ye-pW-ReV"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-bk-HP6">
-                                <rect key="frame" x="16" y="542" width="165" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Sauvegarder" backgroundImage="boutonPlusClair.png">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="sauvegarderServeur:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a2X-az-Hf9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4P-bC-0Ge">
-                                <rect key="frame" x="190" y="542" width="165" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Télécharger" backgroundImage="boutonPlusClair.png">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="telechargerNotes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mOU-o7-C7q"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itZ-g9-1rE">
-                                <rect key="frame" x="16" y="600" width="165" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Effacer" backgroundImage="boutonPlusClair.png">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="deselectionner:" destination="BYZ-38-t0r" eventType="touchUpInside" id="47O-ex-LE6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwk-gN-Gh9">
-                                <rect key="frame" x="190" y="600" width="165" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                <state key="normal" title="Regarder notes" backgroundImage="boutonPlusClair.png">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="XoZ-NK-hHa" kind="presentation" id="NPU-Jt-KGG"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconeGrande.png" translatesAutoresizingMaskIntoConstraints="NO" id="SzZ-nW-TCE">
-                                <rect key="frame" x="88" y="20" width="198" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NSf-de-kvn">
+                                <rect key="frame" x="16" y="552" width="343" height="101"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JCv-eN-CS8">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRh-bk-HP6">
+                                                <rect key="frame" x="0.0" y="0.0" width="169" height="48"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="Sauvegarder" backgroundImage="boutonPlusClair.png">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sauvegarderServeur:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a2X-az-Hf9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4P-bC-0Ge">
+                                                <rect key="frame" x="174" y="0.0" width="169" height="48"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="Télécharger" backgroundImage="boutonPlusClair.png">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="telechargerNotes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mOU-o7-C7q"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MFu-6e-qGn">
+                                        <rect key="frame" x="0.0" y="53" width="343" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itZ-g9-1rE">
+                                                <rect key="frame" x="0.0" y="0.0" width="169" height="48"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="Effacer" backgroundImage="boutonPlusClair.png">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deselectionner:" destination="BYZ-38-t0r" eventType="touchUpInside" id="47O-ex-LE6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwk-gN-Gh9">
+                                                <rect key="frame" x="174" y="0.0" width="169" height="48"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                <state key="normal" title="Regarder notes" backgroundImage="boutonPlusClair.png">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="XoZ-NK-hHa" kind="presentation" id="NPU-Jt-KGG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconeGrande.png" translatesAutoresizingMaskIntoConstraints="NO" id="SzZ-nW-TCE">
+                                <rect key="frame" x="88" y="22" width="198" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="9As-xO-viw"/>
+                                    <constraint firstAttribute="height" constant="87" id="GcV-Cd-2Lu"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzj-Yy-DqS">
-                                <rect key="frame" x="16" y="168" width="339" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzj-Yy-DqS">
+                                <rect key="frame" x="21" y="170" width="333" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="333" id="olx-ed-WLY"/>
+                                    <constraint firstAttribute="height" constant="30" id="vWQ-3r-rNp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Ajouter note" backgroundImage="bouton grand.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,9 +113,12 @@
                                     <action selector="ajouterNote:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i40-0M-SkX"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ecrivez une nouvelle note" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXd-2t-uFT">
-                                <rect key="frame" x="16" y="130" width="339" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ecrivez une nouvelle note" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXd-2t-uFT">
+                                <rect key="frame" x="80" y="132" width="215.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215.5" id="GKx-t7-fV0"/>
+                                    <constraint firstAttribute="height" constant="30" id="d2l-aK-Jdp"/>
+                                </constraints>
                                 <color key="textColor" red="0.0039215686274509803" green="0.14509803921568629" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -103,12 +126,23 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Zzj-Yy-DqS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4Sg-of-Pf0"/>
+                            <constraint firstItem="SzZ-nW-TCE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="2" id="4hQ-bh-IK8"/>
                             <constraint firstItem="TqD-5N-Tel" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4w7-JB-02m"/>
+                            <constraint firstItem="SzZ-nW-TCE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Dw-Kl-KG7"/>
+                            <constraint firstItem="NSf-de-kvn" firstAttribute="top" secondItem="qTo-cd-V5H" secondAttribute="bottom" constant="16" id="91u-9s-5jh"/>
+                            <constraint firstAttribute="trailing" secondItem="NSf-de-kvn" secondAttribute="trailing" constant="16" id="AmK-th-CSI"/>
                             <constraint firstAttribute="trailing" secondItem="TqD-5N-Tel" secondAttribute="trailing" id="Ghg-tN-QM7"/>
+                            <constraint firstItem="Zzj-Yy-DqS" firstAttribute="top" secondItem="AXd-2t-uFT" secondAttribute="bottom" constant="8" id="HIP-AV-IOG"/>
+                            <constraint firstItem="qTo-cd-V5H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P6a-7e-Z4w"/>
+                            <constraint firstItem="qTo-cd-V5H" firstAttribute="top" secondItem="Zzj-Yy-DqS" secondAttribute="bottom" constant="8" id="bkM-tO-GaT"/>
                             <constraint firstItem="TqD-5N-Tel" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="cG7-IK-Fv8"/>
                             <constraint firstItem="TqD-5N-Tel" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hJU-gz-lDl"/>
+                            <constraint firstItem="AXd-2t-uFT" firstAttribute="top" secondItem="SzZ-nW-TCE" secondAttribute="bottom" constant="23" id="lDm-Oo-n2j"/>
                             <constraint firstItem="TqD-5N-Tel" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="luH-4e-aba"/>
+                            <constraint firstItem="NSf-de-kvn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="oHc-Rp-ha8"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TqD-5N-Tel" secondAttribute="bottom" id="qE5-wu-hc1"/>
+                            <constraint firstItem="AXd-2t-uFT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qgI-M8-LaS"/>
                         </constraints>
                     </view>
                     <connections>
@@ -135,9 +169,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrierePlanMedium.png" translatesAutoresizingMaskIntoConstraints="NO" id="1BC-DL-vKb">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8M-UJ-dXD">
-                                <rect key="frame" x="16" y="600" width="165" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8M-UJ-dXD">
+                                <rect key="frame" x="18" y="595" width="165" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2JK-w5-GM9"/>
+                                    <constraint firstAttribute="width" constant="165" id="P5V-Iy-Tca"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Retour" backgroundImage="boutonPlusClair.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -146,14 +183,20 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="UhG-Jl-3h6"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconeGrande.png" translatesAutoresizingMaskIntoConstraints="NO" id="zqu-6V-HSE">
-                                <rect key="frame" x="88" y="20" width="198" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconeGrande.png" translatesAutoresizingMaskIntoConstraints="NO" id="zqu-6V-HSE">
+                                <rect key="frame" x="88" y="22" width="198" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="VJe-bo-ig7"/>
+                                    <constraint firstAttribute="height" constant="87" id="k2b-hU-CdM"/>
+                                </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="deE-Bh-Jzh">
-                                <rect key="frame" x="18" y="115" width="339" height="462"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="deE-Bh-Jzh">
+                                <rect key="frame" x="18" y="117" width="339" height="462"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="462" id="kM0-TO-Dub"/>
+                                    <constraint firstAttribute="width" constant="339" id="xtY-le-fjL"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="XoZ-NK-hHa" id="jLJ-CA-PhJ"/>
                                     <outlet property="delegate" destination="XoZ-NK-hHa" id="u21-gX-ijW"/>
@@ -162,12 +205,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="zqu-6V-HSE" firstAttribute="centerX" secondItem="5Z3-be-Rh5" secondAttribute="centerX" id="2Ol-WP-dRf"/>
                             <constraint firstItem="1BC-DL-vKb" firstAttribute="top" secondItem="5Z3-be-Rh5" secondAttribute="top" id="7nl-yu-aFf"/>
+                            <constraint firstItem="J8M-UJ-dXD" firstAttribute="top" secondItem="deE-Bh-Jzh" secondAttribute="bottom" constant="16" id="96Z-3G-YtH"/>
+                            <constraint firstItem="deE-Bh-Jzh" firstAttribute="top" secondItem="zqu-6V-HSE" secondAttribute="bottom" constant="8" id="DtF-iS-wQn"/>
+                            <constraint firstItem="zqu-6V-HSE" firstAttribute="top" secondItem="ne1-Z6-9Qz" secondAttribute="bottom" constant="2" id="S4I-ix-z4n"/>
                             <constraint firstItem="gIV-1H-cTW" firstAttribute="top" secondItem="1BC-DL-vKb" secondAttribute="bottom" id="U0x-ud-R50"/>
                             <constraint firstItem="1BC-DL-vKb" firstAttribute="leading" secondItem="5Z3-be-Rh5" secondAttribute="leading" id="f4C-XN-a8W"/>
                             <constraint firstItem="1BC-DL-vKb" firstAttribute="height" secondItem="5Z3-be-Rh5" secondAttribute="height" id="l1B-aM-GHw"/>
+                            <constraint firstItem="deE-Bh-Jzh" firstAttribute="centerX" secondItem="5Z3-be-Rh5" secondAttribute="centerX" id="nhw-xL-Jgu"/>
                             <constraint firstItem="1BC-DL-vKb" firstAttribute="width" secondItem="5Z3-be-Rh5" secondAttribute="width" id="ouq-i8-uoH"/>
                             <constraint firstAttribute="trailing" secondItem="1BC-DL-vKb" secondAttribute="trailing" id="ubk-Hh-J8C"/>
+                            <constraint firstItem="J8M-UJ-dXD" firstAttribute="leading" secondItem="deE-Bh-Jzh" secondAttribute="leading" id="zUl-8n-p0f"/>
                         </constraints>
                     </view>
                 </viewController>

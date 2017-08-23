@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +20,36 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrierePlanMedium.png" translatesAutoresizingMaskIntoConstraints="NO" id="d9l-QL-3Gq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconeGrande.png" translatesAutoresizingMaskIntoConstraints="NO" id="ETu-vB-eps">
+                                <rect key="frame" x="88" y="110" width="198" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="C2e-e8-5tb"/>
+                                    <constraint firstAttribute="height" constant="87" id="awL-Is-J5d"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ETu-vB-eps" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="90" id="9vd-BT-DpO"/>
+                            <constraint firstItem="d9l-QL-3Gq" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ER2-Vb-Mel"/>
+                            <constraint firstAttribute="trailing" secondItem="d9l-QL-3Gq" secondAttribute="trailing" id="S1r-sA-YUa"/>
+                            <constraint firstItem="d9l-QL-3Gq" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="V3K-SU-lED"/>
+                            <constraint firstItem="ETu-vB-eps" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Yeu-Aj-f3n"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="d9l-QL-3Gq" secondAttribute="bottom" id="oPK-gw-748"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrierePlanMedium.png" width="346" height="523"/>
+        <image name="iconeGrande.png" width="598" height="244"/>
+    </resources>
 </document>
