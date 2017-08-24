@@ -49,6 +49,35 @@ class JsonManager
             objAdd.dictionnary[objAdd.keys[i]] = objAdd.values[i]
         }
     }
+    //--------------- Methode pour sauvegarder les notes sur le serveur ----------------------------------------------------------------//
+    func sauvegardeJson (objAdd: Add) {
+        var urlToSend = urlToJsonFile
+        var counter = 0
+        let total = objAdd.dictionnary.count
+        for (a, b) in objAdd.dictionnary {
+            let noSpaces = replaceChars(originalStr: a, what: " ", byWhat: "_")
+            counter += 1
+            if counter < total {
+                urlToSend += "/\(noSpaces)/,/\(b)/!"
+            } else {
+                urlToSend += "/\(noSpaces)/,/\(b)/"
+            }
+        }
+        urlToSend += "]"
+        
+        let session = URLSession.shared
+        let urlString = urlToSend
+        let url = NSURL(string: urlString)
+        let request = NSURLRequest(url: url! as URL)
+        let dataTask = session.dataTask(with: request as URLRequest) {
+            (data:Data?, response:URLResponse?, error:Error?) -> Void in
+        }
+        dataTask.resume()
+    }
+    //----------------Methode pour remplacer un caractere pour un autre ---------------------------------------------------------------//
+    func replaceChars(originalStr: String, what: String, byWhat: String) -> String {
+        return originalStr.replacingOccurrences(of: what, with: byWhat)
+    }
     //==================================
 }//fin de la class
 //==================================

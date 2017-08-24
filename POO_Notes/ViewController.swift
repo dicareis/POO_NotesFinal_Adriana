@@ -13,7 +13,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var objAdd = Add()
-    let jsonManager = JsonManager(urlToJsonFile: "http://localhost/dashboard/programmationOO2_Adriana/json_php/data.json")
+    //let jsonManager = JsonManager(urlToJsonFile: "http://localhost/dashboard/programmationOO2_Adriana/json_php/data.json")
+    //let jsonManagerSauvegarde = JsonManager(urlToJsonFile: "http://localhost/dashboard/programmationOO2_Adriana/json_php/add.php?json=[")
+    let jsonManager = JsonManager(urlToJsonFile: "http://localhost/dashboard/geneau/poo2/data.json")
+    let jsonManagerSauvegarde = JsonManager(urlToJsonFile: "http://localhost/dashboard/geneau/poo2/add.php?json=[")
     //---------------Methode predefinies du UIViewController---------------------------------------------------------//
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
         }
     }
-    //--------------- Methode pour ajouter une note à la tableView -------------------------------------------------//
+    //--------------- Bouton pour ajouter une note à la tableView -------------------------------------------------//
     @IBAction func ajouterNote(_ sender: UIButton) {
         
         if !(textField.text?.isEmpty)!{
@@ -71,33 +74,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             alerte("Note ajoutée !!")
         }
     }
-    //--------------- Methode pour sauvegarder les notes sur le serveur --------------------------------------------//
+    //--------------- Bouton qui appelle la methode pour sauvegarder les informations dans le fichier json ----------//
     @IBAction func sauvegarderServeur(_ sender: UIButton) {
-        var urlToSend = "http://localhost/dashboard/programmationOO2_Adriana/json_php/add.php?json=["
-        var counter = 0
-        let total = objAdd.dictionnary.count
-        for (a, b) in objAdd.dictionnary {
-            let noSpaces = replaceChars(originalStr: a, what: " ", byWhat: "_")
-            counter += 1
-            if counter < total {
-                urlToSend += "/\(noSpaces)/,/\(b)/!"
-            } else {
-                urlToSend += "/\(noSpaces)/,/\(b)/"
-            }
-        }
-        urlToSend += "]"
-        
-        let session = URLSession.shared
-        let urlString = urlToSend
-        let url = NSURL(string: urlString)
-        let request = NSURLRequest(url: url! as URL)
-        let dataTask = session.dataTask(with: request as URLRequest) {
-            (data:Data?, response:URLResponse?, error:Error?) -> Void in
-        }
-        dataTask.resume()
+        jsonManagerSauvegarde.sauvegardeJson(objAdd: objAdd)
         alerte("Données sauvegardées \n dans le serveur !!")
     }
-    //--------------- Methode qui montre des alertes pour confirmer le telechargement des notes sauvegardées---------//
+    //--------------- Bouton qui montre des alertes pour confirmer le telechargement des notes sauvegardées---------//
     @IBAction func telechargerNotes(_ sender: UIButton) {
         
         let refreshAlert = UIAlertController(title: "Notes...", message: "Vous voulez vraiment importer vos notes du serveur?", preferredStyle: UIAlertControllerStyle.alert)
@@ -110,7 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         present(refreshAlert, animated: true, completion: nil)
     }
-    //--------------- Methode pour telecharger les notes sauvegardées sur le serveur -------------------------------//
+    //--------------- Appele des autres methodes pour telecharger les notes sauvegardées sur le serveur ------------//
     func telecharger() {
         objAdd.removeALL()
         jsonManager.importJSON()
@@ -118,11 +100,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         objAdd.saveData()
         tableView.reloadData()
     }
-    //----------------Methode pour remplacer un caractere pour un autre --------------------------------------------//
-    func replaceChars(originalStr: String, what: String, byWhat: String) -> String {
-        return originalStr.replacingOccurrences(of: what, with: byWhat)
-    }
-    //----------------Methode pour deselectionner les elements dans la liste----------------------------------------//
+    //----------------Bouton pour deselectionner les elements dans la liste----------------------------------------//
     @IBAction func deselectionner(_ sender: UIButton) {
         
         for i in 0 ..< objAdd.dictionnary.count    {
