@@ -15,7 +15,7 @@ class Add {
     var values: [Bool] = []
     var keysTrue: [String] = []
     let userDefault = UserDefaults.standard
-    //-----------------------------------------------------------------------------------//
+    //-----------Constructeur------------------------------------------------------------//
     init() {
         if userDefault.object(forKey: "data") ==  nil {
             dictionnary = [:]
@@ -71,14 +71,6 @@ class Add {
         keysTrue.remove(at: indexToRemove)
         saveData()
     }
-    
+    //==================================
 }//fin de la class Add
 //==================================
-
-
-
-
-
-
-
-
